@@ -24,7 +24,7 @@ function traerDatos() {
                     <tr>
                         <td>${item.nombre}</td>
                         <td>${item.raza}</td>
-                        <td>${item.ingresado}</td>
+                        <td>${parseLocalDate(item.ingresado)}</td>
                     </tr>
                 `
                 }
@@ -33,4 +33,9 @@ function traerDatos() {
         }
     }
 
+}
+
+function parseLocalDate(stringDate){
+    let timestamp = Date.parse(stringDate)
+    return new Date(timestamp).toLocaleDateString('es-ES')
 }
